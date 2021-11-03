@@ -1,0 +1,57 @@
+<div class="container">
+    <form novalidate (ngSubmit)="save()" [formGroup]="editionForm">
+        <label for="code"class="form-label">Codice edizione</label>
+            <input type="text" class="form-control myshadow" id="code" name="code" formControlName="code"
+                [ngClass]="{'is-invalid': checkValid('code')}">
+            <span *ngIf="checkValid('code')" class="invalid-feedback">
+                <span *ngIf="checkRequired('code')">Codice edizione obbligatorio</span>
+            </span>
+
+            <label for="description"class="form-label">Descrizione</label>
+            <input type="text" class="form-control myshadow" id="description" name="description" formControlName="description"
+                [ngClass]="{'is-invalid': checkValid('description')}">
+            <span *ngIf="checkValid('description')" class="invalid-feedback">
+                <span *ngIf="checkRequired('description')">Descrizione obbligatorio</span>
+            </span>
+
+            <label for="realPrice"class="form-label">Prezzo</label>
+            <input type="number" class="form-control myshadow" id="realPrice" name="realPrice" formControlName="realPrice"
+                [ngClass]="{'is-invalid': checkValid('realPrice') }">
+            <span *ngIf="checkValid('realPrice')" class="invalid-feedback">
+                <span *ngIf="checkRequired('realPrice')">prezzo obbligatorio</span>
+            </span>
+
+            <label for="startDate"class="form-label">Data di inizio</label>
+            <input type="date" class="form-control myshadow" id="startDate" name="startDate" formControlName="startDate"
+                [ngClass]="{'is-invalid': checkValid('startDate') }">
+            <span *ngIf="checkValid('startDate')" class="invalid-feedback">
+                <span *ngIf="checkRequired('startDate')">data inizio obbligatorio</span>
+            </span>
+
+            <label for="finalizationDate"class="form-label">Data di fine</label>
+            <input type="date" class="form-control myshadow" id="finalizationDate" name="finalizationDate" formControlName="finalizationDate"
+                [ngClass]="{'is-invalid': checkValid('finalizationDate') }">
+            <span *ngIf="checkValid('finalizationDate')" class="invalid-feedback">
+                <span *ngIf="checkRequired('finalizationDate')">data inizio obbligatorio</span>
+            </span>
+
+           <!-- docente + corso-->
+            <label for="InstructorId"class="form-label">Insegnanti</label>
+            <select id="instructorId" class="form-select myshadow" name="instructorId" formControlName="instructorId">
+                <option value="0" disabled>Scegli un Instruttore</option>
+                <option *ngFor="let teacher of teachers" [value]="teacher.id"> {{ teacher.firstname+' '+teacher.lastname }} </option>
+            </select>
+
+            <label *ngIf="id==0" for="courseId"class="form-label">Corsi</label>
+            <select *ngIf="id==0" id="courseId" class="form-select myshadow" name="courseId" formControlName="courseId">
+                <option *ngFor="let c of courses" [value]="c.id"> {{ c.title }} </option>
+            </select>
+
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button  class="btn btn-info"value="invia"
+                        [title]="editionForm.valid? 'Crea edizione' : 'Disabilitata finchè i dati non sono corretti'"
+                        [disabled]="!editionForm.valid"><fa-icon [icon]="fasave"></fa-icon>&nbsp;&nbsp;Salva</button>
+                <button (click)="onBack()" class="btn btn-warning"><fa-icon [icon]="faundo"></fa-icon>&nbsp;&nbsp;Indietro</button>
+            </div>
+    </form>
+</div>

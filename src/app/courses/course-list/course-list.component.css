@@ -1,0 +1,35 @@
+.app{
+    margin-top:30px;       
+}
+.app2{
+    margin-top:55px;
+    padding: 30px;
+    padding-bottom: 0px;
+   
+  }
+.myborder{
+    height: 10px;
+    width: 100%;
+    background-color: red;
+}
+.table{
+    margin-bottom: 0px;
+    text-align: center; 
+    vertical-align: middle;
+    -moz-box-shadow: 10px 10px 5px #888;
+    -webkit-box-shadow: 10px 10px 5px #888;
+    box-shadow: 15px 25px 20px rgb(27, 27, 27);
+    
+}
+.sortable tr{
+  cursor: pointer;
+}
+.btn-info:hover{
+  transform: translateY(-1px);
+  -moz-box-shadow: 10px 10px 5px #888;
+  -webkit-box-shadow: 10px 10px 5px #888;
+  box-shadow: 15px 25px 20px rgb(27, 27, 27);
+}
+.search{
+  margin-bottom: 20px;
+}

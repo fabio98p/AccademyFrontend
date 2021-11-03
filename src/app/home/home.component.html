@@ -1,0 +1,27 @@
+<div class="container app2" id="main">
+  <div class="img-container">
+    <img src="\assets\imagines\school.jpg" class="responsive-img" style="width: 100%;">
+  </div>
+  <div class="background"></div>
+  <h1 class="text-center">
+    BENVENUTI NEL NOSTRO SITO
+  </h1>
+  <div class="container">
+    <div class="row gy-5">
+      <div *ngFor="let course of courses" class="card myshadow" style="width: 18rem; margin-right: 20px;">
+        <div class="card-body">
+          <h5 class="card-title">{{course.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{course.duration}}</h6>
+          <p class="card-text">{{course.description}}</p>
+          <div class="btn-group" role="group">
+            <button class="btn btn-success">Iscriviti</button>
+            <button class="btn btn-primary" [routerLink]="['/coursedetails', course.id]">Info</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  ciao
+</footer>

@@ -1,0 +1,39 @@
+body{
+    background-color: rgb(58, 58, 58);
+    color: black;
+}
+.background{
+    position: fixed;
+    background-color: rgb(58, 58, 58);
+    height: 2000px;
+    width: 1000px;
+    -webkit-transform:rotate(30deg);
+    -moz-transform:rotate(30deg);
+    -o-transform:rotate(30deg); 
+    right:1800px;
+    z-index:-991;
+    top: 600px;
+    box-shadow: 0px 0px 40px 5px black;
+}
+.background2{
+    position: fixed;
+    background-color: rgb(136, 136, 136);
+    height: 2000px;
+    width: 1000px;
+    -webkit-transform:rotate(150deg);
+    -moz-transform:rotate(150deg);
+    -o-transform:rotate(150deg); 
+    right:-800px;
+    top: -500px;
+    z-index: -990;
+    box-shadow: 0px 0px 20px 5px black;
+    
+    
+}
+nav{
+    box-shadow: 0px 0px 10px 5px black;
+    position: fixed;
+    left:0;
+    top:0;
+    width: 100%;
+}

@@ -1,0 +1,71 @@
+<div class="container">
+    <form novalidate (ngSubmit)="save(addStudentForm)" #addStudentForm="ngForm">
+        <label for="firstname" class="form-label">Nome</label>
+        <input type="text" class="form-control myshadow" id="firstname" name="firstname"  [(ngModel)]="student.firstname"
+            #studentFirstname="ngModel"
+            [ngClass]="{ 'is-invalid' : ( studentFirstname.touched || studentFirstname.dirty ) && !studentFirstname.valid }">
+        <span class="invalid-feedback">
+            <span *ngIf="studentFirstname.errors?.required"> Il nome è obbligatorio. </span>
+        </span>
+
+        <label for="surname" class="form-label">Cognome</label>
+        <input type="text" class="form-control myshadow" id="surname" name="surname"  [(ngModel)]="student.surname"
+            #studentSurname="ngModel"
+            [ngClass]="{ 'is-invalid' : ( studentSurname.touched || studentSurname.dirty ) && !studentSurname.valid }">
+        <span class="invalid-feedback">
+            <span *ngIf="studentSurname.errors?.required"> Il cognome è obbligatorio. </span>
+        </span>
+
+        <label for="dateOfBirth" class="form-label">Data di nascita</label>
+        <input type="date" class="form-control myshadow" id="dateOfBirth" name="dateOfBirth"  [(ngModel)]="student.dateOfBirth"
+            #studentDateOfBirth="ngModel"
+            [ngClass]="{ 'is-invalid' : ( studentDateOfBirth.touched || studentDateOfBirth.dirty ) && !studentDateOfBirth.valid }">
+        <span class="invalid-feedback">
+            <span *ngIf="studentDateOfBirth.errors?.required"> la data è obbligatorio. </span>
+        </span>
+
+        <label for="address" class="form-label">Indirizzo</label>
+        <input type="text" class="form-control myshadow" id="address" name="address"  [(ngModel)]="student.address"
+            #studentAddress="ngModel"
+            [ngClass]="{ 'is-invalid' : ( studentAddress.touched || studentAddress.dirty ) && !studentAddress.valid }">
+        <span class="invalid-feedback">
+            <span *ngIf="studentAddress.errors?.required"> L'indirizzo è obbligatorio. </span>
+        </span>
+
+        <label for="city" class="form-label">Città</label>
+        <input type="text" class="form-control myshadow" id="city" name="city" [(ngModel)]="student.city"
+            #studentCity="ngModel"
+            [ngClass]="{ 'is-invalid' : ( studentCity.touched || studentCity.dirty ) && !studentCity.valid }">
+        <span class="invalid-feedback">
+            <span *ngIf="studentCity.errors?.required"> La città è obbligatorio. </span>
+        </span>
+
+        <label for="email" class="form-label">Email</label>
+        <input type="text" class="form-control myshadow" id="email" name="email"[(ngModel)]="student.email"
+            #studentEmail="ngModel"
+            [ngClass]="{ 'is-invalid' : ( studentEmail.touched || studentEmail.dirty ) && !studentEmail.valid }">
+        <span class="invalid-feedback">
+            <span *ngIf="studentEmail.errors?.required"> La email è obbligatorio. </span>
+        </span>
+
+        <label for="phoneNumber" class="form-label">Numero di telefono</label>
+        <input type="text" class="form-control myshadow" id="phoneNumber" name="phoneNumber" [(ngModel)]="student.phoneNumber"
+            #studentPhoneNumber="ngModel"
+            [ngClass]="{ 'is-invalid' : ( studentPhoneNumber.touched || studentPhoneNumber.dirty ) && !studentPhoneNumber.valid }">
+        <span class="invalid-feedback">
+            <span *ngIf="studentPhoneNumber.errors?.required"> Il numero di telefono è obbligatorio. </span>
+        </span>
+
+        <div class="mt-3">
+            <label for="isEmployee"class="form-label">Dipendente</label>
+            <input type="checkbox" class="form-check-input ms-3 myshadow" id="isEmployee" name="isEmployee">
+            <br>
+        </div>
+        
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button class="btn btn-info"value="invia" [title]="addStudentForm.valid ? 'crea nuovo corso' : 'invio disabilitato finchè i dati non sono validi'" [disabled]="!addStudentForm.valid"><fa-icon [icon]="fasend"></fa-icon>&nbsp;&nbsp;Salva</button>
+            <button (click)="onBack()" class="btn btn-warning"><fa-icon [icon]="faundo"></fa-icon>&nbsp;&nbsp;Indietro</button>
+        </div>
+
+    </form>
+</div>

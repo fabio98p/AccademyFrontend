@@ -1,0 +1,36 @@
+<div class="container app2" id="main">
+  <button class="btn btn-info mt-5 mb-5" [routerLink]="['/addcourse', 0]" style="width: 200px;"><fa-icon [icon]="fabook"></fa-icon>&nbsp;&nbsp;Crea corso</button>
+  <div class="input-group search">
+    
+    <span class="input-group-text" for="search"><fa-icon [icon]="fasearch"></fa-icon>&nbsp;Cerca</span>
+
+    <input [(ngModel)]="myValue" value="{{myValue}}" (keyup)="search(myValue)" class="form-control" name="search" placeholder="ricerca per titolo">
+  </div> 
+  <div class="myborder"></div>
+  <table class="table table-dark table-striped table-hover"
+    style="width: 100%; user-select: none; -moz-user-select: none;">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Titolo</th>
+        <th scope="col">Descrizione</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of courses">
+        <td>{{ c.id }}</td>
+        <td>{{ c.title }}</td>
+        <td>{{ c.description }}</td>
+        <td style="text-align: right;">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-primary" [routerLink]="['/coursedetails', c.id]"><fa-icon [icon]="fainfo"></fa-icon>&nbsp;&nbsp;Dettagli</button>
+            <button type="button" class="btn btn-warning" [routerLink]="['/addcourse', c.id]"><fa-icon [icon]="faedit"></fa-icon>&nbsp;&nbsp;Modifica</button>
+            <button type="button" class="btn btn-danger" (click)="delete(c.id)"><fa-icon [icon]="fatrash"></fa-icon>&nbsp;&nbsp;Elimina</button>
+          </div>
+        </td> 
+      </tr>
+    </tbody>
+  </table>
+  <div class="myborder"></div>
+</div>

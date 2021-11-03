@@ -1,0 +1,37 @@
+<div class="container app2" id="main">
+    <div class="title">Edizioni del corso: {{ edition.courseTitle }}</div>
+    <button class="btn btn-primary mt-5 mb-5" [routerLink]="['/addedition', 0, id]" style="width: 200px;">Crea edizione</button>
+    <div class="input-group search">
+        <span class="input-group-text" for="search"><fa-icon [icon]="fasearch"></fa-icon>&nbsp;Cerca</span>
+    
+        <input [(ngModel)]="myValue" value="{{myValue}}" (keyup)="search(myValue)" class="form-control" name="search" placeholder="ricerca per codice edizione">
+      </div> 
+    <div class="myborder"></div>
+        <table class="table table-dark table-striped table-hover"
+        style="width: 100%; user-select: none; -moz-user-select: none;">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Codice edizione</th>
+                <th scope="col">Descrizione</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of editions">
+                <td>{{ e.id }}</td>
+                <td>{{ e.code }}</td>
+                <td>{{ e.description }}</td>
+                <td style="text-align: right;">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button class="btn btn-warning" [routerLink]="['/addedition', e?.id, e?.courseId]"><fa-icon [icon]="faedit"></fa-icon>&nbsp;&nbsp;Modifica</button>
+                        <button type="button" class="btn btn-primary" [routerLink]="['/editiondetails', e?.id, e?.courseId]"><fa-icon [icon]="fainfo"></fa-icon>&nbsp;&nbsp;Dettagli</button> 
+                        <button type="button" class="btn btn-success" [routerLink]="['/enrolledition', e.id]"><fa-icon [icon]="faiscrivi" ></fa-icon>&nbsp;&nbsp;Iscrivi</button>
+                        <button type="button" class="btn btn-danger" (click)="delete(e.id)"><fa-icon [icon]="fadelete" ></fa-icon>&nbsp;&nbsp;Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="myborder"></div>
+  </div>

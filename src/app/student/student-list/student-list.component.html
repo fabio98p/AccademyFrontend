@@ -1,0 +1,39 @@
+<div class="container app2" id="main">
+  <button type="button" class="btn btn-info mt-5 mb-5" [routerLink]="['/addstudent', 0]" style="width: 200px;"><fa-icon [icon]="fauser"></fa-icon>&nbsp;&nbsp;Aggiungi studente</button>
+  <div class="input-group search">
+    
+    <span class="input-group-text" for="search"><fa-icon [icon]="fasearch"></fa-icon>&nbsp;Cerca</span>
+
+    <input [(ngModel)]="name" value="{{name}}" (keyup)="search(name, surname)" class="form-control" name="search" placeholder="ricerca per nome">
+    <input [(ngModel)]="surname" value="{{surname}}" (keyup)="search(name, surname)" class="form-control" name="search" placeholder="ricerca per cognome">
+  </div> 
+  <div class="myborder"></div>
+    <table class="table table-dark table-striped table-hover" id="table" style="width: 100%; user-select: none; -moz-user-select: none;">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Cognome</th>
+          <th scope="col">Email</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of students">
+          <td>{{ c.id }}</td>
+          <td>{{ c.firstname }}</td>
+          <td>{{ c.surname }}</td>
+          <td>{{ c.email }}</td>
+          <td style="text-align: right;">
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-primary" [routerLink]="['/studentdetails', c.id]"><fa-icon [icon]="fainfo"></fa-icon>&nbsp;&nbsp;Dettagli</button>
+              <button type="button" class="btn btn-success" [routerLink]="['/enrollmentstudent', c.id]"><fa-icon [icon]="faplus"></fa-icon>&nbsp;&nbsp;Iscrivi</button>
+              <button type="button" class="btn btn-warning" [routerLink]="['/addstudent', c.id]"><fa-icon [icon]="faedit"></fa-icon>&nbsp;&nbsp;Modifica</button>
+              <button type="button" class="btn btn-danger" (click)="delete(c.id)"><fa-icon [icon]="fatrash"></fa-icon>&nbsp;&nbsp;Elimina</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="myborder"></div>
+  </div>

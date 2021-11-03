@@ -1,0 +1,54 @@
+<div class="container">
+    <h1>{{ student?.firstname }} {{ student?.surname }}</h1>
+    <table class="table table-dark table-striped table-hover"
+        style="width: 100%; user-select: none; -moz-user-select: none;">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">codice edizione</th>
+                <th scope="col">Titolo del corso</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let enroll of editionsSubsribed">
+                <td>{{ enroll.id }}</td>
+                <td>{{ enroll.courseEditionCode }}</td>
+                <td>{{ enroll.courseEditionCourseTitle }}</td>
+                <td style="text-align: right;">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-danger" (click)="ClickOnUnsubscribe(enroll.id)"><fa-icon [icon]="fadisiscrivi"></fa-icon>&nbsp;&nbsp;Disiscrivi</button>
+                      </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <table class="table table-dark table-striped table-hover"
+        style="width: 100%; user-select: none; -moz-user-select: none;">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">codice edizione</th>
+                <th scope="col">Titolo</th>
+                <th scope="col">Descrizione</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let enroll of editionsAllowed">
+                <td>{{ enroll.id }}</td>
+                <td>{{ enroll.code }}</td>
+                <td>{{ enroll.courseTitle }}</td>
+                <td>{{ enroll.description }}</td>
+                <td style="text-align: right;">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button" class="btn btn-success" (click)="ClickOnEnroll(enroll.id)"><fa-icon [icon]="faiscrivi"></fa-icon>&nbsp;&nbsp;Iscrivi</button>
+                    </div>
+                  </td>
+            </tr>
+        </tbody>
+    </table>
+    <button (click)="onBack()" class="btn btn-warning"><fa-icon [icon]="faundo"></fa-icon>&nbsp;&nbsp;Indietro</button>
+</div>

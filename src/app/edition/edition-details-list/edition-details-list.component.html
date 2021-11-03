@@ -1,0 +1,73 @@
+<div class="app">
+    <div class="row">
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">ID</span>
+                <input type="text" class="form-control" value="{{ edition?.id }}">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Codice</span>
+                <input type="text" class="form-control" value="{{ edition?.code }}">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Descrizione</span>
+                <input type="text" class="form-control" value="{{ edition?.description }}">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Prezzo</span>
+                <input type="text" class="form-control" value="{{ edition?.realPrice }}">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Data di inizio</span>
+                <input type="text" class="form-control" value="{{ edition?.startDate }}">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Data di fine</span>
+                <input type="text" class="form-control" value="{{ edition?.finalizationDate }}">
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="row">
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">d</span>
+                <input type="text" class="form-control" value="{{ edition?.instructorId }}">
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Id area</span>
+                <input type="text" class="form-control" value="{{ edition?.areaId }}">
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Nome area</span>
+                <input type="text" class="form-control" value="{{ edition?.areaName }}">
+
+            </div>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" (click)="onBack()"><fa-icon [icon]="faundo"></fa-icon>&nbsp;&nbsp;Indietro</button>
+        </div>
+    </div>
+
+</div>

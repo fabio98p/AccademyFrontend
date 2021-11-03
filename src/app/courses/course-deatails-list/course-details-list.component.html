@@ -1,0 +1,94 @@
+<div class="app">
+    <div class="row">
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">ID</span>
+                <input type="text" class="form-control" value="{{ course?.id }}">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Titolo</span>
+                <input type="text" class="form-control" value="{{ course?.title }}">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Descrizione</span>
+                <input type="text" class="form-control" value="{{ course?.description }}">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Durata</span>
+                <input type="text" class="form-control" value="{{ course?.duration }}">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Prezzo base</span>
+                <input type="text" class="form-control" value="{{ course?.basePrice }}">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Programma</span>
+                <input type="text" class="form-control" value="{{ course?.syllabus }}">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Livello</span>
+                <input type="text" class="form-control" value="{{ course?.level }}">
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Id area</span>
+                <input type="text" class="form-control" value="{{ course?.areaId }}">
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Nome area</span>
+                <input type="text" class="form-control" value="{{ course?.areaName }}">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Data di creazione</span>
+                <input type="text" class="form-control" value="{{ course?.creationDate }}">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Certificazione</span>
+                <input type="text" class="form-control" value="{{ course?.grantsCertification }}">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group myshadow">
+                <span class="input-group-text" id="basic-addon1">Edizioni:</span>
+                <button class="btn btn-info spanForm" id="view" [routerLink]="['/editions', course?.id]"><fa-icon [icon]="faview"></fa-icon>&nbsp;&nbsp;Visualizza</button>
+                <button class="btn btn-primary spanForm" [routerLink]="['/addedition', 0, course?.id]"><fa-icon [icon]="faplus"></fa-icon>&nbsp;&nbsp;Aggiungi</button>
+      </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" (click)="onBack()"><fa-icon [icon]="faundo"></fa-icon>&nbsp;&nbsp;Indietro</button>
+        </div>
+    </div>
+
+</div>
