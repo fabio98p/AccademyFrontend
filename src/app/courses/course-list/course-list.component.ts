@@ -2,7 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Course } from 'src/app/DTOs/course';
-import { DidactisService } from '../didactis.service';
+import { DidactisService } from 'src/app/services/didactis.service';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';

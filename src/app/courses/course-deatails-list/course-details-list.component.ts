@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from 'src/app/DTOs/course';
 import { CourseEdition } from 'src/app/DTOs/edition';
 import { Level } from 'src/app/DTOs/level';
-import { DidactisService } from '../didactis.service';
+import { DidactisService } from 'src/app/services/didactis.service';
 import { faReply } from '@fortawesome/free-solid-svg-icons';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faList } from '@fortawesome/free-solid-svg-icons';

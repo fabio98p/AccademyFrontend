@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailValidator } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DidactisService } from 'src/app/courses/didactis.service';
+import { DidactisService } from 'src/app/services/didactis.service';
 import { Student } from 'src/app/DTOs/student';
 import { faReply } from '@fortawesome/free-solid-svg-icons';
 

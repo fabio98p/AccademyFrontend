@@ -3,11 +3,12 @@ import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import { CourseEdition } from 'src/app/DTOs/edition';
-import { Area } from "../DTOs/area";
-import { Course } from "../DTOs/course";
-import { Enroll } from "../DTOs/enroll";
-import { Student } from "../DTOs/student";
-import { Teacher } from "../DTOs/teacher";
+import { Area } from "src/app/DTOs/area";
+
+import { Course } from "src/app/DTOs/course";
+import { Enroll } from "src/app/DTOs/enroll";
+import { Student } from "src/app/DTOs/student";
+import { Teacher } from "src/app/DTOs/teacher";
 
 
 @Injectable({

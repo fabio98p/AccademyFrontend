@@ -1,7 +1,7 @@
 import { Component, OnInit, TestabilityRegistry } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { DidactisService } from 'src/app/courses/didactis.service';
+import { DidactisService } from 'src/app/services/didactis.service';
 import { Student } from 'src/app/DTOs/student';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';

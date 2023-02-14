@@ -5,7 +5,7 @@ import { faReply } from '@fortawesome/free-solid-svg-icons';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
-import { DidactisService } from 'src/app/courses/didactis.service';
+import { DidactisService } from 'src/app/services/didactis.service';
 import { CourseEdition } from 'src/app/DTOs/edition';
 
 @Component({

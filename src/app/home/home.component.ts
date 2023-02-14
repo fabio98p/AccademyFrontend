@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DidactisService } from '../courses/didactis.service';
+import { DidactisService } from 'src/app/services/didactis.service';
 import { Course } from '../DTOs/course';
 
 @Component({

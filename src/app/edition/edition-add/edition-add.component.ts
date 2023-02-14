@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DidactisService } from 'src/app/courses/didactis.service';
+import { DidactisService } from 'src/app/services/didactis.service';
 import { Course } from 'src/app/DTOs/course';
 import { CourseEdition } from 'src/app/DTOs/edition';
 import { Teacher } from 'src/app/DTOs/teacher';

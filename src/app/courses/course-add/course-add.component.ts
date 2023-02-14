@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Area } from 'src/app/DTOs/area';
 import { Course } from 'src/app/DTOs/course';
 import { Level } from 'src/app/DTOs/level';
-import { DidactisService } from '../didactis.service';
+import { DidactisService } from 'src/app/services/didactis.service';
 import { faReply } from '@fortawesome/free-solid-svg-icons';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 

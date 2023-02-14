@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faGraduationCap, faHandshakeSlash, faReply } from '@fortawesome/free-solid-svg-icons';
-import { DidactisService } from 'src/app/courses/didactis.service';
+import { DidactisService } from 'src/app/services/didactis.service';
 import { CourseEdition } from 'src/app/DTOs/edition';
 import { Enroll } from 'src/app/DTOs/enroll';
 import { Student } from 'src/app/DTOs/student';
