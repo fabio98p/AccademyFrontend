@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DidactisService } from 'src/app/services/didactis.service';
+import { CoursesService } from 'src/app/services/courses.service';
+
 import { Course } from 'src/app/DTOs/course';
-import { CourseEdition } from 'src/app/DTOs/edition';
+import { Edition } from 'src/app/DTOs/edition';
 import { Teacher } from 'src/app/DTOs/teacher';
 import { faReply } from '@fortawesome/free-solid-svg-icons';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
@@ -20,14 +22,14 @@ export class EditionAddComponent implements OnInit {
   editionForm: FormGroup;
   teachers:Teacher[] = [];
   courses:Course[] = [];
-  edition: CourseEdition = new CourseEdition();
+  edition: Edition = new Edition();
   id:number = 0;
   idCourse: number=0;
 
   faundo = faReply;
   fasave = faSave;
 
-  constructor(private fb:FormBuilder, private editionService: DidactisService, private router:Router, private route:ActivatedRoute) {
+  constructor(private fb:FormBuilder, private service:DidactisService, private coursesService:CoursesService, private router:Router, private route:ActivatedRoute) {
     this.editionForm = this.fb.group({   
     });
   }
@@ -46,7 +48,7 @@ export class EditionAddComponent implements OnInit {
     });
     if(this.id!=0)
     {
-      this.editionService.getEditionById(this.id)
+      this.service.getEditionById(this.id)
       .subscribe({
         next: s => {
           this.edition = s;
@@ -55,12 +57,12 @@ export class EditionAddComponent implements OnInit {
         error: err => console.log(err)
       })
     }
-    this.editionService.getTeachers()
+    this.service.getTeachers()
     .subscribe({
       next: t => {this.teachers = t; },
       error: error => console.log(error)
     });
-    this.editionService.getCourses()
+    this.coursesService.getCourses()
     .subscribe({
       next: t => {
         this.courses = t;
@@ -89,7 +91,7 @@ export class EditionAddComponent implements OnInit {
     this.editionForm.value.instructorId = Number(this.editionForm.value.instructorId)
     this.editionForm.value.courseId = Number(this.editionForm.value.courseId)
     if (this.id == 0) {
-        this.editionService.createEdition(this.editionForm.value)
+        this.service.createEdition(this.editionForm.value)
         .subscribe({
           next: ce => {
             alert("Edizione creata con id: "+ce.id);
@@ -100,7 +102,7 @@ export class EditionAddComponent implements OnInit {
     } else {
         this.edition = this.editionForm.value;
         this.edition.id = this.id;
-        this.editionService.updateEdition(this.edition)
+        this.service.updateEdition(this.edition)
         .subscribe({
           next: ce => {
             alert("Edizione aggiornata con id: "+this.edition.id);

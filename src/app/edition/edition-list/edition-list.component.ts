@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DidactisService } from 'src/app/services/didactis.service';
-import { CourseEdition } from 'src/app/DTOs/edition';
+import { Edition } from 'src/app/DTOs/edition';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
@@ -17,9 +17,9 @@ declare var bootbox:any;
 })
 export class EditionListComponent implements OnInit {
 
-    public editions:CourseEdition[] = [];
-    public edition:CourseEdition = new CourseEdition();
-    public originalEditions: CourseEdition[] = [];
+    public editions:Edition[] = [];
+    public edition:Edition = new Edition();
+    public originalEditions: Edition[] = [];
     public id: number = 0;
     myValue:string="";
 
@@ -37,7 +37,7 @@ export class EditionListComponent implements OnInit {
   ngOnInit(): void {
 
     this.id = Number(this.route.snapshot.paramMap.get('id'));
-    let obsCourses:Observable<CourseEdition[]> = this.service.getEditionsByCourseId(this.id);
+    let obsCourses:Observable<Edition[]> = this.service.getEditionsByCourseId(this.id);
     obsCourses.subscribe({
       next: cs => {
         this.editions = cs;   
@@ -47,7 +47,7 @@ export class EditionListComponent implements OnInit {
       },
       error: err => console.log(err)
     });
-    let obsCourse:Observable<CourseEdition> = this.service.getEditionById(this.id);
+    let obsCourse:Observable<Edition> = this.service.getEditionById(this.id);
     obsCourse.subscribe({
       next: cs => {
         this.edition = cs;   
@@ -83,7 +83,7 @@ export class EditionListComponent implements OnInit {
   }
   remove(id: number){
       console.log(id)
-      let obsCourse:Observable<CourseEdition> = this.service.deleteCourseEdition(id);
+      let obsCourse:Observable<Edition> = this.service.deleteEdition(id);
       obsCourse.subscribe({
           next: c => {
           this.edition = c;

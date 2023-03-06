@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faGraduationCap, faHandshakeSlash, faReply } from '@fortawesome/free-solid-svg-icons';
 import { DidactisService } from 'src/app/services/didactis.service';
-import { CourseEdition } from 'src/app/DTOs/edition';
+import { Edition } from 'src/app/DTOs/edition';
 import { Enroll } from 'src/app/DTOs/enroll';
 import { Student } from 'src/app/DTOs/student';
 
@@ -15,14 +15,14 @@ export class EnrollmentEditionComponent implements OnInit {
 
   studentsSubsribed: Enroll[] = [];
   studentsAllowed: Student[] = [];
-  edition: CourseEdition;
+  edition: Edition;
 
   faiscrivi = faGraduationCap;
   fadisiscrivi = faHandshakeSlash;
   faundo = faReply;
   
   constructor(private service: DidactisService, private router: Router, private route: ActivatedRoute) {  
-    this.edition = new CourseEdition();
+    this.edition = new Edition();
   }
 
   ngOnInit(): void {
@@ -32,13 +32,13 @@ export class EnrollmentEditionComponent implements OnInit {
         next: c => { this.edition = c },
         error: error => console.log(error)
       });
-      this.service.getSubscribedEnrollmentByCourseEditionId(id)
+      this.service.getSubscribedEnrollmentByEditionId(id)
       .subscribe({
         next: c => { this.studentsSubsribed = c },
         error: error => console.log(error)
       });
 
-    this.service.getAvailableEnrollmentByCourseEditionId(id)
+    this.service.getAvailableEnrollmentByEditionId(id)
       .subscribe({
         next: c => { this.studentsAllowed = c },
         error: error => console.log(error)

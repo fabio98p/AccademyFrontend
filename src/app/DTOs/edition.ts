@@ -1,4 +1,4 @@
-export class CourseEdition{
+export class Edition{
     id: number = 0;
     code:string = "";
     description:string = "";

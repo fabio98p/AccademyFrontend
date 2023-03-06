@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from 'src/app/DTOs/course';
-import { CourseEdition } from 'src/app/DTOs/edition';
+import { Edition } from 'src/app/DTOs/edition';
 import { Level } from 'src/app/DTOs/level';
 import { DidactisService } from 'src/app/services/didactis.service';
+import { CoursesService } from 'src/app/services/courses.service';
 import { faReply } from '@fortawesome/free-solid-svg-icons';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faList } from '@fortawesome/free-solid-svg-icons';
@@ -16,24 +17,24 @@ import { faList } from '@fortawesome/free-solid-svg-icons';
   export class CourseDetailsListComponent implements OnInit {
 
     course:Course | undefined;
-    editions:CourseEdition[] = [];
+    editions:Edition[] = [];
 
     faundo = faReply;
     faplus = faPlusCircle;
     faview = faList;
 
-    constructor(private courseService: DidactisService, private router:Router, private route:ActivatedRoute){
+    constructor(private service:DidactisService, private coursesService:CoursesService, private router:Router, private route:ActivatedRoute){
     }
     ngOnInit(): void {
       const id = Number(this.route.snapshot.paramMap.get('id'));
       if (id!=null)
       {
-        this.courseService.getCourseById(id)
+        this.coursesService.getCourseById(id)
         .subscribe({
           next: c => {this.course = c},
           error: error => console.log(error)
         });
-        this.courseService.getEditionsByCourseId(id)
+        this.service.getEditionsByCourseId(id)
           .subscribe({
           next: ces => this.editions = ces,
           error: error => console.log(error)

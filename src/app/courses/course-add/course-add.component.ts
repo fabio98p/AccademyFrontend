@@ -6,6 +6,7 @@ import { Area } from 'src/app/DTOs/area';
 import { Course } from 'src/app/DTOs/course';
 import { Level } from 'src/app/DTOs/level';
 import { DidactisService } from 'src/app/services/didactis.service';
+import { CoursesService } from 'src/app/services/courses.service';
 import { faReply } from '@fortawesome/free-solid-svg-icons';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 
@@ -24,7 +25,7 @@ export class CourseAddComponent implements OnInit {
   faundo = faReply;
   fasend=faSave;
 
-  constructor(private service:DidactisService, private router:Router, private route:ActivatedRoute) { 
+  constructor(private service:DidactisService, private coursesService:CoursesService, private router:Router, private route:ActivatedRoute) { 
     this.levels = this.getLevels();
     this.course = new Course();
     this.course.level = Level.INTERMEDIATE;
@@ -40,7 +41,7 @@ export class CourseAddComponent implements OnInit {
     
     if (this.id != 0)
     {
-      this.service.getCourseById(this.id)
+      this.coursesService.getCourseById(this.id)
                   .subscribe({
                     next: c =>{
                       this.course = c;
@@ -66,7 +67,7 @@ export class CourseAddComponent implements OnInit {
     console.log(this.course)
     if (this.id == 0)
     {
-      this.service.createCourse(this.course)
+      this.coursesService.createCourse(this.course)
       .subscribe({
         next: cs => {
           this.course = cs;
@@ -77,7 +78,7 @@ export class CourseAddComponent implements OnInit {
       });
     }
     else{
-      this.service.updateCourse(this.course)
+      this.coursesService.updateCourse(this.course)
       .subscribe({
         next: cs => {
           this.course = cs;

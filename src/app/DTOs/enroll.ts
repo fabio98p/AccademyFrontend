@@ -1,4 +1,4 @@
-import { CourseEdition } from "./edition";
+import { Edition } from "./edition";
 import { Student } from "./student";
 
 export class Enroll{
@@ -13,7 +13,7 @@ export class Enroll{
     studentFeedBack:string = "";
     courseEditionStartDate:string = "";
     
-    constructor(student: Student, edition: CourseEdition){
+    constructor(student: Student, edition: Edition){
         this.studentId = student.id;
         this.studentFirstname = student.firstname;
         this.studentLastname = student.surname;

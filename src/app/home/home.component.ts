@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DidactisService } from 'src/app/services/didactis.service';
+import { CoursesService } from 'src/app/services/courses.service';
+
 import { Course } from '../DTOs/course';
 
 @Component({
@@ -10,10 +11,10 @@ import { Course } from '../DTOs/course';
 })
 export class HomeComponent implements OnInit{
   courses:Course[] = [];
-  constructor(private service:DidactisService, private router:Router, private route:ActivatedRoute) {
+  constructor(private coursesService:CoursesService, private router:Router, private route:ActivatedRoute) {
   }
   ngOnInit(): void {
-    this.service.getLastCourses(6)
+    this.coursesService.getLastCourses(6)
     .subscribe({
       next: c => {
         this.courses = c;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DidactisService } from 'src/app/services/didactis.service';
-import { CourseEdition } from 'src/app/DTOs/edition';
+import { Edition } from 'src/app/DTOs/edition';
 import { Enroll } from 'src/app/DTOs/enroll';
 import { Student } from 'src/app/DTOs/student';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
@@ -16,7 +16,7 @@ import { faReply } from '@fortawesome/free-solid-svg-icons';
 export class EntollmentStudentComponent implements OnInit {
 
   editionsSubsribed: Enroll[] = [];
-  editionsAllowed: CourseEdition[] = [];
+  editionsAllowed: Edition[] = [];
   student: Student;
 
   faiscrivi = faGraduationCap;

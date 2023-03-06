@@ -2,7 +2,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Course } from 'src/app/DTOs/course';
-import { DidactisService } from 'src/app/services/didactis.service';
+import { CoursesService } from 'src/app/services/courses.service';
+
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
@@ -32,13 +33,13 @@ export class CourseListComponent implements OnInit {
   fabook = faBook;
  
 
-  constructor(private service:DidactisService, private router:Router, private route:ActivatedRoute) { console.log('courseListConstructor');
+  constructor(private coursesService:CoursesService, private router:Router, private route:ActivatedRoute) { console.log('courseListConstructor');
   }
 
 
   ngOnInit(): void {
     console.log('ngOnInit CourseListComponent');
-    let obsCourses:Observable<Course[]> = this.service.getCourses();
+    let obsCourses:Observable<Course[]> = this.coursesService.getCourses();
     obsCourses.subscribe({
       next: cs => {
         this.courses = cs;
@@ -77,7 +78,7 @@ export class CourseListComponent implements OnInit {
 
   remove(id: number){
     console.log(id)
-    let obsCourse:Observable<Course> = this.service.deleteCourse(id);
+    let obsCourse:Observable<Course> = this.coursesService.deleteCourse(id);
     obsCourse.subscribe({
       next: c => {
         this.course = c;
