@@ -1,64 +1,109 @@
 <div class="container">
-    <form novalidate (ngSubmit)="save(addCourseForm)" #addCourseForm="ngForm">
-        <label for="title" class="form-label">Titolo</label>
-        <input type="text" class="form-control myshadow" id="title" name="title" required minlength="5" [(ngModel)]="course.title"
-            #courseTitle="ngModel"
-            [ngClass]="{ 'is-invalid' : ( courseTitle.touched || courseTitle.dirty ) && !courseTitle.valid }">
-        <span class="invalid-feedback">
-            <span *ngIf="courseTitle.errors?.required"> Il titolo è obbligatorio. </span>
-            <span *ngIf="courseTitle.errors?.minlength"> Il titolo deve essere almeno di 5 caratteri. </span>
-        </span>
+	<form novalidate (ngSubmit)="save(addCourseForm)" #addCourseForm="ngForm">
+		<label for="title" class="form-label">Titolo</label>
+		<input
+			type="text"
+			class="form-control myshadow"
+			id="title"
+			name="title"
+			required
+			minlength="5"
+			[(ngModel)]="course.title"
+			#courseTitle="ngModel"
+			[ngClass]="{ 'is-invalid': (courseTitle.touched || courseTitle.dirty) && !courseTitle.valid }"
+		/>
+		<span class="invalid-feedback">
+			<span *ngIf="courseTitle.errors?.required"> Il titolo è obbligatorio. </span>
+			<span *ngIf="courseTitle.errors?.minlength"> Il titolo deve essere almeno di 5 caratteri. </span>
+		</span>
 
-        <label for="description"class="form-label">Descrizione</label>
-        <input type="text" class="form-control myshadow" id="description" name="description" required minlength="10" [(ngModel)]="course.description"
-            #courseDescription="ngModel"
-            [ngClass]="{ 'is-invalid' : ( courseDescription.touched || courseDescription.dirty ) && !courseDescription.valid }">
-        <span class="invalid-feedback">
-            <span *ngIf="courseDescription.errors?.required"> La descrizione è obbligatorio. </span>
-            <span *ngIf="courseDescription.errors?.minlength"> La descrizione deve essere almeno di 10 caratteri.
-            </span>
-        </span>
+		<label for="description" class="form-label">Descrizione</label>
+		<input
+			type="text"
+			class="form-control myshadow"
+			id="description"
+			name="description"
+			required
+			minlength="10"
+			[(ngModel)]="course.description"
+			#courseDescription="ngModel"
+			[ngClass]="{ 'is-invalid': (courseDescription.touched || courseDescription.dirty) && !courseDescription.valid }"
+		/>
+		<span class="invalid-feedback">
+			<span *ngIf="courseDescription.errors?.required"> La descrizione è obbligatorio. </span>
+			<span *ngIf="courseDescription.errors?.minlength"> La descrizione deve essere almeno di 10 caratteri. </span>
+		</span>
 
-        <label for="duration"class="form-label">Durata</label>
-        <input type="number" class="form-control myshadow" id="duration" onfocus="this.value=''" name="duration" [(ngModel)]="course.duration" #courseDuration="ngModel"
-            [ngClass]="{ 'is-invalid' : ( courseDuration.touched || courseDuration.dirty ) && !courseDuration.valid }">
-        <span class="invalid-feedback">
-            <span *ngIf="courseDuration.errors?.required"> La durata è obbligatorio. </span>
-        </span>
+		<label for="duration" class="form-label">Durata</label>
+		<input
+			type="number"
+			class="form-control myshadow"
+			id="duration"
+			onfocus="this.value=''"
+			name="duration"
+			[(ngModel)]="course.duration"
+			#courseDuration="ngModel"
+			[ngClass]="{ 'is-invalid': (courseDuration.touched || courseDuration.dirty) && !courseDuration.valid }"
+		/>
+		<span class="invalid-feedback">
+			<span *ngIf="courseDuration.errors?.required"> La durata è obbligatorio. </span>
+		</span>
 
-        <label for="basePrice"class="form-label">Prezzo base</label>
-        <input type="number" class="form-control myshadow" id="basePrice" onfocus="this.value=''" name="basePrice" [(ngModel)]="course.basePrice" #courseBasePrice="ngModel"
-            [ngClass]="{ 'is-invalid' : ( courseBasePrice.touched || courseBasePrice.dirty ) && !courseBasePrice.valid }">
-        <span class="invalid-feedback">
-            <span *ngIf="courseBasePrice.errors?.required"> Il prezzo base è obbligatorio. </span>
-        </span>
-        
-        <label for="creationDate"class="form-label">Data di creazione</label>
-        <input type="date" class="form-control myshadow" id="creationDate" name="creationDate" [(ngModel)]="course.creationDate" #courseCreationDate="ngModel"
-            [ngClass]="{ 'is-invalid' : ( courseCreationDate.touched || courseCreationDate.dirty ) && !courseCreationDate.valid }">
-        <span class="invalid-feedback">
-            <span *ngIf="courseCreationDate.errors?.required"> La data di creazione è obbligatorio. </span>
-        </span>
+		<label for="basePrice" class="form-label">Prezzo base</label>
+		<input
+			type="number"
+			class="form-control myshadow"
+			id="basePrice"
+			onfocus="this.value=''"
+			name="basePrice"
+			[(ngModel)]="course.basePrice"
+			#courseBasePrice="ngModel"
+			[ngClass]="{ 'is-invalid': (courseBasePrice.touched || courseBasePrice.dirty) && !courseBasePrice.valid }"
+		/>
+		<span class="invalid-feedback">
+			<span *ngIf="courseBasePrice.errors?.required"> Il prezzo base è obbligatorio. </span>
+		</span>
 
-        <label for="areaId"class="form-label">Area</label>
-        <select id="areaId" class="form-select myshadow" name="areaId" [(ngModel)]="course.areaId">
-            <option *ngFor="let area of areas" [value]="area.id"> {{ area.name }} </option>
-        </select>
+		<label for="creationDate" class="form-label">Data di creazione</label>
+		<input
+			type="date"
+			class="form-control myshadow"
+			id="creationDate"
+			name="creationDate"
+			[(ngModel)]="course.creationDate"
+			#courseCreationDate="ngModel"
+			[ngClass]="{ 'is-invalid': (courseCreationDate.touched || courseCreationDate.dirty) && !courseCreationDate.valid }"
+		/>
+		<span class="invalid-feedback">
+			<span *ngIf="courseCreationDate.errors?.required"> La data di creazione è obbligatorio. </span>
+		</span>
 
-        <label for="level"class="form-label">Livello</label> 
-        <select id="level" class="form-select myshadow" name="level" [(ngModel)]="course.level">
-            <option *ngFor="let level of levels" [value]="level.value"> {{ level.label }}</option>
-        </select> 
+		<label for="areaId" class="form-label">Area</label>
+		<select id="areaId" class="form-select myshadow" name="areaId" [(ngModel)]="course.areaId">
+			<option *ngFor="let area of areas" [value]="area.id">{{ area.name }}</option>
+		</select>
 
-        <div class="mt-3">
-            <label for="grantsCertification"class="form-label">Certificazione</label>
-            <input type="checkbox" class="form-check-input ms-3 myshadow" id="grantsCertification" name="grantsCertification">
-            <br>
-        </div>
-        
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <button class="btn btn-info"value="invia" [title]="addCourseForm.valid ? 'crea nuovo corso' : 'invio disabilitato finchè i dati non sono validi'" [disabled]="!addCourseForm.valid"><fa-icon [icon]="fasend"></fa-icon>&nbsp;&nbsp;Salva</button>
-            <button (click)="onBack()" class="btn btn-warning"><fa-icon [icon]="faundo"></fa-icon>&nbsp;&nbsp;Indietro</button>
-        </div>
-    </form>
+		<label for="level" class="form-label">Livello</label>
+		<select id="level" class="form-select myshadow" name="level" [(ngModel)]="course.level">
+			<option *ngFor="let level of levels" [value]="level.value">{{ level.label }}</option>
+		</select>
+
+		<div class="mt-3">
+			<label for="grantsCertification" class="form-label">Certificazione</label>
+			<input type="checkbox" class="form-check-input ms-3 myshadow" id="grantsCertification" name="grantsCertification" />
+			<br />
+		</div>
+
+		<div class="btn-group" role="group" aria-label="Basic example">
+			<button
+				class="btn btn-info"
+				value="invia"
+				[title]="addCourseForm.valid ? 'crea nuovo corso' : 'invio disabilitato finchè i dati non sono validi'"
+				[disabled]="!addCourseForm.valid"
+			>
+				<fa-icon [icon]="fasend"></fa-icon>&nbsp;&nbsp;Salva
+			</button>
+			<button (click)="onBack()" class="btn btn-warning"><fa-icon [icon]="faundo"></fa-icon>&nbsp;&nbsp;Indietro</button>
+		</div>
+	</form>
 </div>

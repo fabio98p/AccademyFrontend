@@ -2,23 +2,25 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core'
 import { Observable, throwError } from 'rxjs'
 import { catchError, tap } from 'rxjs/operators'
-import { Edition } from 'src/app/DTOs/edition'
-import { Area } from 'src/app/DTOs/area'
+
+// import { Instructor } from '../DTOs/instructor'
+import { Instructor } from 'src/app/DTOs/instructor'
 
 @Injectable({
 	providedIn: 'root'
 })
-export class AreasService {
+export class InstructorsService {
 	private baseUrl = 'https://localhost:44331/api/'
-	private areaUrl = this.baseUrl + 'area'
+
+	private instructorUrl = this.baseUrl + 'instructor'
 
 	//private http:HttpClient;
 	constructor(private http: HttpClient) {
 		this.http = http
 	}
 
-	getAreas(): Observable<Area[]> {
-		return this.http.get<Area[]>(`${this.areaUrl}/areas`).pipe(
+	getInstructors(): Observable<Instructor[]> {
+		return this.http.get<Instructor[]>(this.instructorUrl).pipe(
 			tap(data => console.log(data)),
 			catchError(this.handleError)
 		)

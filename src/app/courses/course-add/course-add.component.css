@@ -1,43 +1,39 @@
-
-label{
-    color: white;
+label {
+	color: white;
 }
-.submit{
-    background-color: violet;
-    border-radius: 0px;
+.submit {
+	background-color: violet;
+	border-radius: 0px;
 }
-.myshadow{
-    -moz-box-shadow: 10px 10px 5px #888;
-    -webkit-box-shadow: 10px 10px 5px #888;
-    box-shadow: 5px 5px 5px black;
+.myshadow {
+	-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+	box-shadow: 5px 5px 5px black;
 }
-.btn-info{
-    width: 600px;
-    height: 50px;
-    margin-left: 5%;
-    margin-top: 50px;
+.btn-info {
+	width: 600px;
+	height: 50px;
+	margin-left: 5%;
+	margin-top: 50px;
 }
-.btn-info:hover{
-    transform: translateY(-1px);
-    -moz-box-shadow: 10px 10px 5px #888;
-    -webkit-box-shadow: 10px 10px 5px #888;
-    box-shadow: 15px 25px 20px rgb(27, 27, 27);
-    
+.btn-info:hover {
+	transform: translateY(-1px);
+	-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+	box-shadow: 15px 25px 20px rgb(27, 27, 27);
 }
-.btn-warning:hover{
-    transform: translateY(-1px);
-    -moz-box-shadow: 10px 10px 5px #888;
-    -webkit-box-shadow: 10px 10px 5px #888;
-    box-shadow: 15px 25px 20px rgb(27, 27, 27);
-   
+.btn-warning:hover {
+	transform: translateY(-1px);
+	-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+	box-shadow: 15px 25px 20px rgb(27, 27, 27);
 }
-.btn-warning{
-    width: 600px;
-    height: 50px;
-    margin-left: 25%;
-    margin-top: 50px;
+.btn-warning {
+	width: 600px;
+	height: 50px;
+	margin-left: 25%;
+	margin-top: 50px;
 }
-.container{
-    margin-top:150px;
+.container {
+	margin-top: 150px;
 }
-

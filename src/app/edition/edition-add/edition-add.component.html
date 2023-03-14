@@ -39,9 +39,9 @@
             <label for="InstructorId"class="form-label">Insegnanti</label>
             <select id="instructorId" class="form-select myshadow" name="instructorId" formControlName="instructorId">
                 <option value="0" disabled>Scegli un Instruttore</option>
-                <option *ngFor="let teacher of teachers" [value]="teacher.id"> {{ teacher.firstname+' '+teacher.lastname }} </option>
+                <option *ngFor="let instructor of instructors" [value]="instructor.id"> {{ instructor.firstname+' '+instructor.lastname }} </option>
             </select>
-
+            instructor
             <label *ngIf="id==0" for="courseId"class="form-label">Corsi</label>
             <select *ngIf="id==0" id="courseId" class="form-select myshadow" name="courseId" formControlName="courseId">
                 <option *ngFor="let c of courses" [value]="c.id"> {{ c.title }} </option>

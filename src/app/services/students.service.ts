@@ -2,71 +2,63 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core'
 import { Observable, throwError } from 'rxjs'
 import { catchError, tap } from 'rxjs/operators'
-
-import { Edition } from 'src/app/DTOs/edition'
-
 import { Student } from 'src/app/DTOs/student'
-import { Instructor } from 'src/app/DTOs/instructor'
 
 @Injectable({
 	providedIn: 'root'
 })
-export class EditionsService {
+export class StudentsService {
 	private baseUrl = 'https://localhost:44331/api/'
-	private courseUrl = this.baseUrl + 'course'
-	private areaUrl = this.baseUrl + 'area'
-	private courseEditionUrl = this.baseUrl + 'edition'
-	private instructorUrl = this.baseUrl + 'instructor'
+
 	private studentUrl = this.baseUrl + 'student'
-	private enrollUrl = this.baseUrl + 'enrollment'
-	//private http:HttpClient;
+
 	constructor(private http: HttpClient) {
 		this.http = http
 	}
 
-	getEditionsByCourseId(id: number): Observable<Edition[]> {
-		return this.http.get<Edition[]>(`${this.courseEditionUrl}/course/${id}`).pipe(
+	getStudents(): Observable<Student[]> {
+		return this.http.get<Student[]>(this.studentUrl).pipe(
 			tap(data => console.log(data)),
 			catchError(this.handleError)
 		)
 	}
 
-	getEditionById(id: number): Observable<Edition> {
-		return this.http.get<Edition>(`${this.courseEditionUrl}/${id}`).pipe(
+	getStudentById(id: Number): Observable<Student> {
+		return this.http.get<Student>(`${this.studentUrl}/${id}`).pipe(
 			tap(data => console.log(data)),
 			catchError(this.handleError)
 		)
 	}
 
-	createEdition(edition: Edition): Observable<Edition> {
+	getAvailableEnrollmentByEditionId(id: number): Observable<Student[]> {
+		return this.http.get<Student[]>(`${this.studentUrl}/courseeditionAvailable/${id}`).pipe(
+			tap(data => console.log(data)),
+			catchError(this.handleError)
+		)
+	}
+
+	createStudent(student: Student): Observable<Student> {
 		const hs = new HttpHeaders({
 			'Content-Type': 'application/json'
 		})
-		return this.http.post<Edition>(this.courseEditionUrl, edition, { headers: hs }).pipe(
+		return this.http.post<Student>(this.studentUrl, student, { headers: hs }).pipe(
 			tap(data => console.log(data)),
 			catchError(this.handleError)
 		)
 	}
 
-	updateEdition(edition: Edition): Observable<Edition> {
+	updateStudent(student: Student): Observable<Student> {
 		const hs = new HttpHeaders({
 			'Content-Type': 'application/json'
 		})
-		return this.http.put<Edition>(this.courseEditionUrl, edition, { headers: hs }).pipe(
+		return this.http.put<Student>(this.studentUrl, student, { headers: hs }).pipe(
 			tap(data => console.log(data)),
 			catchError(this.handleError)
 		)
 	}
 
-	deleteEdition(id: number): Observable<Edition> {
-		return this.http.delete<Edition>(`${this.courseEditionUrl}/${id}`).pipe(
-			tap(data => console.log(data)),
-			catchError(this.handleError)
-		)
-	}
-
-	getAvailableEnrollmentByStudentId(id: number): Observable<Edition[]> {
-		return this.http.get<Edition[]>(`${this.courseEditionUrl}/studentAvailable/${id}`).pipe(
+	deleteStudent(id: number): Observable<Student> {
+		return this.http.delete<Student>(`${this.studentUrl}/${id}`).pipe(
 			tap(data => console.log(data)),
 			catchError(this.handleError)
 		)
