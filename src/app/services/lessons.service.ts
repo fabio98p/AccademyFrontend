@@ -2,12 +2,13 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core'
 import { Observable, throwError } from 'rxjs'
 import { catchError, tap } from 'rxjs/operators'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class LessonsService {
-	private baseUrl = 'https://localhost:44331/api/'
+	private baseUrl = environment.apiURL
 	//private http:HttpClient;
 	constructor(private http: HttpClient) {
 		this.http = http

@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core'
 import { Observable, throwError } from 'rxjs'
 import { catchError, tap } from 'rxjs/operators'
+import { environment } from 'src/environments/environment';
 
 import { Edition } from 'src/app/DTOs/edition'
 
@@ -12,7 +13,7 @@ import { Instructor } from 'src/app/DTOs/instructor'
 	providedIn: 'root'
 })
 export class EditionsService {
-	private baseUrl = 'https://localhost:44331/api/'
+	private baseUrl = environment.apiURL
 	private courseUrl = this.baseUrl + 'course'
 	private areaUrl = this.baseUrl + 'area'
 	private courseEditionUrl = this.baseUrl + 'edition'

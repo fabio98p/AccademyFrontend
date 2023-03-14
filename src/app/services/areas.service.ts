@@ -4,12 +4,13 @@ import { Observable, throwError } from 'rxjs'
 import { catchError, tap } from 'rxjs/operators'
 import { Edition } from 'src/app/DTOs/edition'
 import { Area } from 'src/app/DTOs/area'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class AreasService {
-	private baseUrl = 'https://localhost:44331/api/'
+	private baseUrl = environment.apiURL
 	private areaUrl = this.baseUrl + 'area'
 
 	//private http:HttpClient;

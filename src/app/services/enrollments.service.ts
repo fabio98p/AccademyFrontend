@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core'
 import { Observable, throwError } from 'rxjs'
 import { catchError, tap } from 'rxjs/operators'
 import { Enroll } from 'src/app/DTOs/enroll'
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
 	providedIn: 'root'
 })
 export class EnrollmentsService {
-	private baseUrl = 'https://localhost:44331/api/'
+	private baseUrl = environment.apiURL
 	private enrollUrl = this.baseUrl + 'enrollment'
 	//private http:HttpClient;
 	constructor(private http: HttpClient) {
