@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs'
 import { catchError, tap } from 'rxjs/operators'
 import { Enroll } from 'src/app/DTOs/enroll'
 import { environment } from 'src/environments/environment';
+import { handleError } from 'src/app/services/utilities.service'
 
 
 @Injectable({
@@ -20,13 +21,13 @@ export class EnrollmentsService {
     getSubscribedEnrollmentByStudentId(id: number): Observable<Enroll[]> {
 		return this.http.get<Enroll[]>(`${this.enrollUrl}/studentSubscribed/${id}`).pipe(
 			tap(data => console.log(data)),
-			catchError(this.handleError)
+			catchError(handleError)
 		)
 	}
 	getSubscribedEnrollmentByEditionId(id: number): Observable<Enroll[]> {
 		return this.http.get<Enroll[]>(`${this.enrollUrl}/courseeditionSubscribed/${id}`).pipe(
 			tap(data => console.log(data)),
-			catchError(this.handleError)
+			catchError(handleError)
 		)
 	}
 
@@ -36,24 +37,13 @@ export class EnrollmentsService {
 		})
 		return this.http.post<Enroll>(this.enrollUrl, enroll, { headers: hs }).pipe(
 			tap(data => console.log(data)),
-			catchError(this.handleError)
+			catchError(handleError)
 		)
 	}
 	UnsubscribeStudent(id: number): Observable<Enroll> {
 		return this.http.delete<Enroll>(`${this.enrollUrl}/${id}`).pipe(
 			tap(data => console.log(data)),
-			catchError(this.handleError)
+			catchError(handleError)
 		)
-	}
-	private handleError(errorResponse: HttpErrorResponse): Observable<never> {
-		//lancia un'eccezione
-		let errorMessage = ''
-		if (errorResponse.error instanceof ErrorEvent) {
-			errorMessage = 'errore di rete: ' + errorResponse.error.message
-		} else {
-			errorMessage = 'errore lato server: ' + errorResponse.status + '' + errorResponse.message
-		}
-		console.log(errorMessage)
-		return throwError(errorMessage)
 	}
 }

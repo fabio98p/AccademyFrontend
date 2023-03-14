@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core'
 import { Observable, throwError } from 'rxjs'
 import { catchError, tap } from 'rxjs/operators'
 import { environment } from 'src/environments/environment';
+import { handleError } from 'src/app/services/utilities.service'
 
 import { Course } from 'src/app/DTOs/course'
 
@@ -20,14 +21,14 @@ export class CoursesService {
 	getCourses(): Observable<Course[]> {
 		return this.http.get<Course[]>(this.courseUrl).pipe(
 			tap(data => console.log(data)),
-			catchError(this.handleError)
+			catchError(handleError)
 		)
 	}
 
 	getCourseById(id: Number): Observable<Course> {
 		return this.http.get<Course>(`${this.courseUrl}/${id}`).pipe(
 			tap(data => console.log(data)),
-			catchError(this.handleError)
+			catchError(handleError)
 		)
 	}
 
@@ -37,7 +38,7 @@ export class CoursesService {
 		})
 		return this.http.post<Course>(this.courseUrl, course, { headers: hs }).pipe(
 			tap(data => console.log(data)),
-			catchError(this.handleError)
+			catchError(handleError)
 		)
 	}
 
@@ -47,33 +48,21 @@ export class CoursesService {
 		})
 		return this.http.put<Course>(this.courseUrl, course, { headers: hs }).pipe(
 			tap(data => console.log(data)),
-			catchError(this.handleError)
+			catchError(handleError)
 		)
 	}
 
 	deleteCourse(id: number): Observable<Course> {
 		return this.http.delete<Course>(`${this.courseUrl}/${id}`).pipe(
 			tap(data => console.log(data)),
-			catchError(this.handleError)
+			catchError(handleError)
 		)
 	}
 
 	getLastCourses(n: number): Observable<Course[]> {
 		return this.http.get<Course[]>(`${this.courseUrl}/lastCourse/${n}`).pipe(
 			tap(data => console.log(data)),
-			catchError(this.handleError)
+			catchError(handleError)
 		)
-	}
-
-	private handleError(errorResponse: HttpErrorResponse): Observable<never> {
-		//lancia un'eccezione
-		let errorMessage = ''
-		if (errorResponse.error instanceof ErrorEvent) {
-			errorMessage = 'errore di rete: ' + errorResponse.error.message
-		} else {
-			errorMessage = 'errore lato server: ' + errorResponse.status + '' + errorResponse.message
-		}
-		console.log(errorMessage)
-		return throwError(errorMessage)
 	}
 }

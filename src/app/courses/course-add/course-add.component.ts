@@ -10,7 +10,6 @@ import { Level } from 'src/app/DTOs/level'
 import { faReply } from '@fortawesome/free-solid-svg-icons'
 import { faSave } from '@fortawesome/free-solid-svg-icons'
 
-import { DidactisService } from 'src/app/services/didactis.service'
 import { CoursesService } from 'src/app/services/courses.service'
 import { AreasService } from 'src/app/services/areas.service'
 

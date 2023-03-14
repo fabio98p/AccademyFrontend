@@ -2,9 +2,11 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core'
 import { Observable, throwError } from 'rxjs'
 import { catchError, tap } from 'rxjs/operators'
-import { Edition } from 'src/app/DTOs/edition'
-import { Area } from 'src/app/DTOs/area'
 import { environment } from 'src/environments/environment';
+import { handleError } from 'src/app/services/utilities.service'
+
+import { Area } from 'src/app/DTOs/area'
+
 
 @Injectable({
 	providedIn: 'root'
@@ -21,19 +23,7 @@ export class AreasService {
 	getAreas(): Observable<Area[]> {
 		return this.http.get<Area[]>(`${this.areaUrl}/areas`).pipe(
 			tap(data => console.log(data)),
-			catchError(this.handleError)
+			catchError(handleError)
 		)
-	}
-
-	private handleError(errorResponse: HttpErrorResponse): Observable<never> {
-		//lancia un'eccezione
-		let errorMessage = ''
-		if (errorResponse.error instanceof ErrorEvent) {
-			errorMessage = 'errore di rete: ' + errorResponse.error.message
-		} else {
-			errorMessage = 'errore lato server: ' + errorResponse.status + '' + errorResponse.message
-		}
-		console.log(errorMessage)
-		return throwError(errorMessage)
 	}
 }

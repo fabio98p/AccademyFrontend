@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core'
 import { Observable, throwError } from 'rxjs'
 import { catchError, tap } from 'rxjs/operators'
 import { environment } from 'src/environments/environment';
+import { handleError } from 'src/app/services/utilities.service'
 
 @Injectable({
 	providedIn: 'root'
