@@ -16,7 +16,7 @@ export class Enroll {
 	constructor(student: Student, edition: Edition) {
 		this.studentId = student.id
 		this.studentFirstname = student.firstname
-		this.studentLastname = student.surname
+		this.studentLastname = student.lastname
 		this.courseEditionId = edition.id
 		this.courseEditionCode = edition.code
 		this.courseEditionStartDate = edition.startDate

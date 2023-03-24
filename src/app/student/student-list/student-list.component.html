@@ -4,8 +4,8 @@
     
     <span class="input-group-text" for="search"><fa-icon [icon]="fasearch"></fa-icon>&nbsp;Cerca</span>
 
-    <input [(ngModel)]="name" value="{{name}}" (keyup)="search(name, surname)" class="form-control" name="search" placeholder="ricerca per nome">
-    <input [(ngModel)]="surname" value="{{surname}}" (keyup)="search(name, surname)" class="form-control" name="search" placeholder="ricerca per cognome">
+    <input [(ngModel)]="name" value="{{name}}" (keyup)="search(name, lastname)" class="form-control" name="search" placeholder="ricerca per nome">
+    <input [(ngModel)]="lastname" value="{{lastname}}" (keyup)="search(name, lastname)" class="form-control" name="search" placeholder="ricerca per cognome">
   </div> 
   <div class="myborder"></div>
     <table class="table table-dark table-striped table-hover" id="table" style="width: 100%; user-select: none; -moz-user-select: none;">
@@ -22,7 +22,7 @@
         <tr *ngFor="let c of students">
           <td>{{ c.id }}</td>
           <td>{{ c.firstname }}</td>
-          <td>{{ c.surname }}</td>
+          <td>{{ c.lastname }}</td>
           <td>{{ c.email }}</td>
           <td style="text-align: right;">
             <div class="btn-group" role="group" aria-label="Basic example">

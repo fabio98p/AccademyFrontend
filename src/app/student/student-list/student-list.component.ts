@@ -23,7 +23,7 @@ export class StudentListComponent implements OnInit {
 	student: Student = new Student()
 	originalStudents: Student[] = []
 	name: string = ''
-	surname: string = ''
+	lastname: string = ''
 
 	fasearch = faSearch
 	fainfo = faInfoCircle
@@ -42,10 +42,10 @@ export class StudentListComponent implements OnInit {
 			error: error => console.log(error)
 		})
 	}
-	search(name: string, surname: string) {
+	search(name: string, lastname: string) {
 		this.students = this.originalStudents
 		console.log(this.students[0].firstname + ' ' + this.students[0].firstname.includes(name))
-		this.students = this.students.filter(c => c.surname.toLocaleLowerCase().includes(surname) && c.firstname.toLocaleLowerCase().includes(name))
+		this.students = this.students.filter(c => c.lastname.toLocaleLowerCase().includes(lastname) && c.firstname.toLocaleLowerCase().includes(name))
 	}
 
 	delete(id: number) {

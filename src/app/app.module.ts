@@ -17,7 +17,9 @@ import { StudentAddComponent } from './student/student-add/student-add.component
 import { EditionListComponent } from './edition/edition-list/edition-list.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { EditionDetailsListComponent } from './edition/edition-details-list/edition-details-list.component'
-import { EnrollmentEditionComponent } from './enrollment/enrollment-edition/enrollment-edition.component'
+import { EnrollmentEditionComponent } from './enrollment/enrollment-edition/enrollment-edition.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DropdownSearchComponent } from './components/dropdown-search/dropdown-search.component'
 
 @NgModule({
 	declarations: [
@@ -33,7 +35,9 @@ import { EnrollmentEditionComponent } from './enrollment/enrollment-edition/enro
 		StudentAddComponent,
 		EditionListComponent,
 		EditionDetailsListComponent,
-		EnrollmentEditionComponent
+		EnrollmentEditionComponent,
+  NavbarComponent,
+  DropdownSearchComponent
 	],
 	imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, FontAwesomeModule],
 	providers: [],

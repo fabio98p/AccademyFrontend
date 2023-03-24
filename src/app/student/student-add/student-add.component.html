@@ -8,12 +8,12 @@
             <span *ngIf="studentFirstname.errors?.required"> Il nome è obbligatorio. </span>
         </span>
 
-        <label for="surname" class="form-label">Cognome</label>
-        <input type="text" class="form-control myshadow" id="surname" name="surname"  [(ngModel)]="student.surname"
-            #studentSurname="ngModel"
-            [ngClass]="{ 'is-invalid' : ( studentSurname.touched || studentSurname.dirty ) && !studentSurname.valid }">
+        <label for="lastname" class="form-label">Cognome</label>
+        <input type="text" class="form-control myshadow" id="lastname" name="lastname"  [(ngModel)]="student.lastname"
+            #studentlastname="ngModel"
+            [ngClass]="{ 'is-invalid' : ( studentlastname.touched || studentlastname.dirty ) && !studentlastname.valid }">
         <span class="invalid-feedback">
-            <span *ngIf="studentSurname.errors?.required"> Il cognome è obbligatorio. </span>
+            <span *ngIf="studentlastname.errors?.required"> Il cognome è obbligatorio. </span>
         </span>
 
         <label for="dateOfBirth" class="form-label">Data di nascita</label>
